@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+/* ==========================================================================
+Proyecto: Instalador
+Empresa: 
+Creado por: Hugo Gonzalez Olaya
+Fecha creacion: 2012-01-31
+Fecha Actualizacion: 2012-01-31
+Descripcion: Dialogo esperando por estimación de espacio en disco (Version modificada del dialogo original Wix) 
+========================================================================== */
+/* ==========================================================================
+Historial de versiones (Actualizado: 2012-01-31)
+1.0.0	Creado por: Hugo Gonzalez Olaya
+========================================================================== */
+
+/* ==========================================================================
+Links: 
+Fuentes: http://wix.cvs.sourceforge.net/viewvc/wix/wix/src/ext/UIExtension/wixlib/
+========================================================================== */
+-->
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <UI>
+            <Dialog Id="UI2WaitForCostingDlg" Width="260" Height="85" Title="!(loc.WaitForCostingDlg_Title)" NoMinimize="yes">
+                <Control Id="Return" Type="PushButton" X="102" Y="57" Width="56" Height="17" Default="yes" Cancel="yes" Text="!(loc.WaitForCostingDlgReturn)">
+                    <Publish Event="EndDialog" Value="Exit">1</Publish>
+                </Control>
+                <Control Id="Text" Type="Text" X="48" Y="15" Width="194" Height="30" Text="!(loc.WaitForCostingDlgText)" />
+                <Control Id="Icon" Type="Icon" X="15" Y="15" Width="24" Height="24" ToolTip="!(loc.WaitForCostingDlgIconTooltip)" FixedSize="yes" IconSize="32" Text="!(loc.WaitForCostingDlgIcon)" />
+            </Dialog>
+        </UI>
+    </Fragment>
+</Wix>

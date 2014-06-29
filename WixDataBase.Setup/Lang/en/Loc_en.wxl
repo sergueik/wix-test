@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+/* ==========================================================================
+Proyecto: Instalador
+Empresa: 
+Creado por: Hugo Gonzalez Olaya
+Fecha creacion: 2012-01-31
+Fecha Actualizacion: 2012-01-31
+Descripcion: Localización personalizada. Lenguaje: Español
+========================================================================== */
+/* ==========================================================================
+Historial de versiones (Actualizado: 2012-01-31)
+1.0.0	Creado por: Hugo Gonzalez Olaya
+========================================================================== */
+
+/* ==========================================================================
+Links:
+Fuentes: http://wix.cvs.sourceforge.net/viewvc/wix/wix/src/ext/UIExtension/wixlib/
+========================================================================== */
+-->
+<WixLocalization Culture="en-us" xmlns="http://schemas.microsoft.com/wix/2006/localization" Codepage="1252">
+	<String Id="LANG" Overridable="yes">1033</String>
+	<String Id="CodePage" Overridable="yes">1252</String>
+	<String Id="LicenseRtf" Overridable="yes">Lang\en\EULA_en.rtf</String>
+	<String Id="ProductDescription" Overridable="yes">Installer database objects</String>
+	<String Id="ProductComments" Overridable="yes">Installer database objects</String>
+	<String Id="KeyWords" Overridable="yes">Installer,MSI,Database</String>
+
+	<!--Location Validation and error-->
+	<String Id="ValidationVersionAlreadyUpdated" Overridable="yes">Una versión de [ProductName] ya está instalada</String>
+	<String Id="ValidationVersionNew" Overridable="yes">Una nueva versión de [ProductName] ya está instalada</String>
+	<String Id="ValidationAdministrator" Overridable="yes">El usuario debe tener permisos de administrador de la maquina</String>
+	<String Id="ValidationDotNet" Overridable="yes">Este producto requiere tener instalado Microsoft Framework 3.0 o superior</String>
+
+	<!--Dialogo UILicenseKeyDlg-->
+	<String Id="UILicenseKeyDlg_Title" Overridable="yes">Setup [ProductName]</String>
+	<String Id="UILicenseKeyDlg_UserName" Overridable="yes">Nombre de &amp;Usuario</String>
+	<String Id="UILicenseKeyDlg_Organization" Overridable="yes">&amp;Organización</String>
+	<String Id="UILicenseKeyDlg_Key" Overridable="yes">CD &amp;Clave:</String>
+	<String Id="UILicenseKeyDlgNext" Overridable="yes">&amp;Siguiente</String>
+	<String Id="UILicenseKeyDlgBack" Overridable="yes">&amp;Anterior</String>
+	<String Id="UILicenseKeyDlgCancel" Overridable="yes">Cancelar</String>
+	<String Id="UILicenseKeyDlg_Description" Overridable="yes">Por favor ingrese su información de cliente</String>
+	<String Id="UILicenseKeyDlgTitle" Overridable="yes">Información del cliente</String>
+
+  <!--Dialog UIInvalidPidDlg-->
+  <String Id="UIInvalidPidDlg_Text" Overridable="yes">The user key you entered is invalid. Please, enter the key printed on the label of the box of the installation CD</String>
+
+  <String Id="ExecuteAppToExit" Overridable="yes">Ejecutar aplicación [ProductName] al salir del instalador</String>
+  <String Id="Readme" Overridable="yes">Readme</String>
+  <String Id="UninstallName" Overridable="yes">Uninstall</String>
+
+  <!--Dialogo UIProgressDlg-->
+  <String Id="UIProgressDlg_ExecutingTask" Overridable="yes"><![CDATA[Executing: [1]]]></String>
+
+	<!--Dialogo DatabaseServerDlg-->
+	<String Id="DatabaseServerDlg_Header" Overridable="yes">Conexión al servidor de base de datos</String>
+	<String Id="DatabaseServerDlg_Title" Overridable="yes">Conexión al servidor de base de datos</String>
+	<String Id="DatabaseServerDlg_Description" Overridable="yes">Ingrese la información de autenticación</String>
+	<String Id="DatabaseServerDlg_WinAuthentication" Overridable="yes">Utilizar autenticación de Windows</String>
+	<String Id="DatabaseServerDlg_SqlAuthentication" Overridable="yes">Utilizar autenticación de SQL Server</String>
+	<String Id="DatabaseServerDlg_ServerLabel" Overridable="yes">Nombre del servidor de base de datos:</String>
+  <String Id="DatabaseServerDlg_AuthenticationLabel" Overridable="yes">Conexión con el servidor:</String>
+  <String Id="DatabaseServerDlg_UserLabel" Overridable="yes">Nombre de usuario:</String>
+  <String Id="DatabaseServerDlg_PasswordLabel" Overridable="yes">Contraseña:</String>
+  <String Id="DatabaseServerDlg_Test" Overridable="yes">&amp;Test conexión</String>
+  <String Id="DatabaseServerDlg_DatabaseLabel" Overridable="yes">Nombre de base de datos:</String>
+  <String Id="DatabaseServerDlg_ExecuteScripts" Overridable="yes">Ejecutar scripts de base de datos</String>
+  <String Id="DatabaseServerDlg_IncludeDatabaInAuthentication" Overridable="yes">Incluir base de datos en autenticación</String>
+  <String Id="DatabaseServerDlg_AuthenticationErrorMessage" Overridable="yes">Error al autenticar el usuario en el servidor de base de datos</String>
+  <String Id="DatabaseServerDlg_ServerRequired" Overridable="yes">Nombre de servidor requerido</String>
+  <String Id="DatabaseServerDlg_DataBaseRequired" Overridable="yes">Nombre de base de datos requerido</String>
+  <String Id="DatabaseServerDlg_UserPasswordRequired" Overridable="yes">Nombre de usuario y contraseña requeridos</String>
+
+  <!--Dialogo DatabaseSQLAgentDlg-->
+  <String Id="DatabaseSQLAgentDlg_Header" Overridable="yes">Configuración SQL Server Agent</String>
+  <String Id="DatabaseSQLAgentDlg_Title" Overridable="yes">Configuración SQL Server Agent</String>
+  <String Id="DatabaseSQLAgentDlg_Description" Overridable="yes">Ingrese la información de configuración</String>
+  <String Id="DatabaseSQLAgentDlg_MailConfigLabel" Overridable="yes">Configuración de correo</String>
+  <String Id="DatabaseSQLAgentDlg_MailProfileLabel" Overridable="yes">Nombre perfil correo</String>
+  <String Id="DatabaseSQLAgentDlg_MailBoxLabel" Overridable="yes">Cuenta de correo</String>
+  <String Id="DatabaseSQLAgentDlg_MailIPLabel" Overridable="yes">IP Servidor correo (#.#.#.#)</String>
+  <String Id="DatabaseSQLAgentDlg_OperatorConfigLabel" Overridable="yes">Operador SQL Server</String>
+  <String Id="DatabaseSQLAgentDlg_OperatorNameLabel" Overridable="yes">Nombre operador</String>
+
+  <!--Dialogo DatabaseProxyDlg-->
+  <String Id="DatabaseProxyDlg_Header" Overridable="yes">Proxy servidor de base de datos</String>
+  <String Id="DatabaseProxyDlg_Title" Overridable="yes">Proxy servidor de base de datos</String>
+  <String Id="DatabaseProxyDlg_Description" Overridable="yes">Ingrese la información de cuenta proxy</String>
+  <String Id="DatabaseProxyDlg_ProxyConfigLabel" Overridable="yes">Cuenta Proxy - Seguridad</String>
+  <String Id="DatabaseProxyDlg_ProxyWindowsUserLabel" Overridable="yes">Usuario Windows (Domino\Usuario)</String>
+  <String Id="DatabaseProxyDlg_ProxyPasswordLabel" Overridable="yes">Contraseña</String>
+  <String Id="DatabaseProxyDlg_ProxyPasswordConfirmLabel" Overridable="yes">Confirmar contraseña</String>
+
+  <!--UI-->
+  <String Id="Return" Overridable="yes">&amp;Volver</String>
+  <String Id="ErrorValidation" Overridable="yes">Error al validar uno de los campos</String>
+
+  <!--Paths install database-->
+  <String Id="Database_Path_Primary" Overridable="yes">Ruta archivo principal de base datos *.mdf</String>
+  <String Id="Database_Path_Log" Overridable="yes">Ruta archivo log de transacciones *.ldf</String>
+</WixLocalization>

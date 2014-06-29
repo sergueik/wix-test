@@ -1,0 +1,4 @@
+D:\Hugo\Proyectos\WixTutor\Fuente\WixDataBase.Setup\WixDataBase.Setup\bin\Debug\en-us\WixDataBase.Setup.msi
+D:\Hugo\Proyectos\WixTutor\Fuente\WixDataBase.Setup\WixDataBase.Setup\bin\Debug\en-us\WixDataBase.Setup.wixpdb
+D:\Hugo\Proyectos\WixTutor\Fuente\WixDataBase.Setup\WixDataBase.Setup\bin\Debug\es\WixDataBase.Setup.msi
+D:\Hugo\Proyectos\WixTutor\Fuente\WixDataBase.Setup\WixDataBase.Setup\bin\Debug\es\WixDataBase.Setup.wixpdb

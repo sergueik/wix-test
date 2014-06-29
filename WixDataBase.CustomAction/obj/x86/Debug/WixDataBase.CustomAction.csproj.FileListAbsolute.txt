@@ -1,0 +1,12 @@
+D:\Hugo\Proyectos\WixTutor\Fuente\WixDataBase.Setup\WixDataBase.CustomAction\bin\Debug\WixDataBase.CustomAction.dll
+D:\Hugo\Proyectos\WixTutor\Fuente\WixDataBase.Setup\WixDataBase.CustomAction\bin\Debug\WixDataBase.CustomAction.CA.dll
+D:\Hugo\Proyectos\WixTutor\Fuente\WixDataBase.Setup\WixDataBase.CustomAction\bin\Debug\WixDataBase.CustomAction.pdb
+D:\Hugo\Proyectos\WixTutor\Fuente\WixDataBase.Setup\WixDataBase.CustomAction\bin\Debug\Microsoft.Deployment.WindowsInstaller.dll
+D:\Hugo\Proyectos\WixTutor\Fuente\WixDataBase.Setup\WixDataBase.CustomAction\bin\Debug\Microsoft.Deployment.WindowsInstaller.xml
+D:\Hugo\Proyectos\WixTutor\Fuente\WixDataBase.Setup\WixDataBase.CustomAction\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Hugo\Proyectos\WixTutor\Fuente\WixDataBase.Setup\WixDataBase.CustomAction\obj\x86\Debug\WixDataBase.CustomAction.Properties.Resources.resources
+D:\Hugo\Proyectos\WixTutor\Fuente\WixDataBase.Setup\WixDataBase.CustomAction\obj\x86\Debug\WixDataBase.CustomAction.UI.frmPaths.resources
+D:\Hugo\Proyectos\WixTutor\Fuente\WixDataBase.Setup\WixDataBase.CustomAction\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\Hugo\Proyectos\WixTutor\Fuente\WixDataBase.Setup\WixDataBase.CustomAction\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\Hugo\Proyectos\WixTutor\Fuente\WixDataBase.Setup\WixDataBase.CustomAction\obj\x86\Debug\WixDataBase.CustomAction.dll
+D:\Hugo\Proyectos\WixTutor\Fuente\WixDataBase.Setup\WixDataBase.CustomAction\obj\x86\Debug\WixDataBase.CustomAction.pdb

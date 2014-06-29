@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Product Id="{70E1C15B-FC46-4935-98BB-315C7FFAD63F}" Language="1033" Manufacturer="PUT-COMPANY-NAME-HERE" Name="PUT-PRODUCT-NAME-HERE" UpgradeCode="{86C4C5E0-479F-497D-A907-5BEAB547FDAD}" Version="1.0.0.0">
+        <Package Compressed="yes" InstallerVersion="200" />
+        <Directory Id="TARGETDIR" Name="SourceDir" />
+        <Feature Id="ProductFeature" Level="1" Title="PUT-FEATURE-TITLE-HERE">
+            <ComponentGroupRef Id="WixDataBase.CustomAction.Binaries" />
+            <ComponentGroupRef Id="WixDataBase.CustomAction.Documents" />
+            <ComponentGroupRef Id="WixDataBase.CustomAction.Satellites" />
+            <ComponentGroupRef Id="CG_General" />
+        </Feature>
+        <Media Id="1" Cabinet="product.cab" EmbedCab="yes" />
+    </Product>
+    <Fragment>
+        <DirectoryRef Id="WixDataBase.CustomAction.Binaries" />
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="WixDataBase.CustomAction.Binaries">
+            <ComponentRef Id="cmp277B6453F8635F04BC2A25C8EC5B2DF3" />
+        </ComponentGroup>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="WixDataBase.CustomAction.Documents" />
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="WixDataBase.CustomAction.Satellites" />
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="CG_General">
+            <Component Id="cmp277B6453F8635F04BC2A25C8EC5B2DF3" Directory="WixDataBase.CustomAction.Binaries" Guid="{BA74674D-B99A-42C4-91E8-8941D6B4392D}">
+                <File Id="filFFAD49C66EDA0CABA0B66A9D2F828EA5" Source="$(var.WixDataBase.CustomAction.TargetDir)\WixDataBase.CustomAction.dll" />
+            </Component>
+        </ComponentGroup>
+    </Fragment>
+</Wix>

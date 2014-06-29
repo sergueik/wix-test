@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Product Id="{C2C10BA3-2455-4A4B-9F17-D506E62CE64A}" Language="1033" Manufacturer="PUT-COMPANY-NAME-HERE" Name="PUT-PRODUCT-NAME-HERE" UpgradeCode="{B178DD64-09CC-4113-AEB8-A972438829B2}" Version="1.0.0.0">
+        <Package Compressed="yes" InstallerVersion="200" />
+        <Directory Id="TARGETDIR" Name="SourceDir" />
+        <Feature Id="ProductFeature" Level="1" Title="PUT-FEATURE-TITLE-HERE">
+            <ComponentGroupRef Id="CG_General" />
+        </Feature>
+        <Media Id="1" Cabinet="product.cab" EmbedCab="yes" />
+    </Product>
+    <Fragment>
+        <DirectoryRef Id="INSTALLLOCATION">
+            <Directory Id="dir0FBB71CB30AF14E02B0FA86A988202CA" Name="Wix.DBScript" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="CG_General">
+            <Component Id="cmpDF07D30AE1B273EEA4FEAAE143B434A8" Directory="dir0FBB71CB30AF14E02B0FA86A988202CA" Guid="{3DDE5150-A3D4-420F-A801-1DFBF6582BC9}">
+                <File Id="fil761BF5950AA36025796E8DCD3C656495" KeyPath="yes" Source="$(var.SourceItemsDir)\Wix.DBScript.sqlsuo" />
+            </Component>
+            <Component Id="cmpA1A8969D0FA1D6166F17DA60393AF1C6" Directory="dir0FBB71CB30AF14E02B0FA86A988202CA" Guid="{8967E6A0-7D40-40BE-ACEF-775A63D540B3}">
+                <File Id="fil548A65E8101B4D382A4DD2710FC73551" KeyPath="yes" Source="$(var.SourceItemsDir)\Wix.DBScript.ssmssln" />
+            </Component>
+            <Component Id="cmp8ED399792B183E6A39CDE32ED8BC95F9" Directory="dir379D2DF70EC1F98D8A730658C24E6FD5" Guid="{835F8A93-8280-4A88-B34C-DE731D1D6F44}">
+                <File Id="fil25044444B3C75610A43228F06F2B92B5" KeyPath="yes" Source="$(var.SourceItemsDir)\A01Wix.CreateDB\A01Wix.CreateDB.ssmssqlproj" />
+            </Component>
+            <Component Id="cmpC71BE0DCE33A3995A07ED8CDFB9A4F81" Directory="dir379D2DF70EC1F98D8A730658C24E6FD5" Guid="{BB80C594-9F48-4C99-A936-31A704C1F2A8}">
+                <File Id="filCA369E782AB7B12498A20FC9C89FB7B4" KeyPath="yes" Source="$(var.SourceItemsDir)\A01Wix.CreateDB\Wix_01CreateDB.sql" />
+            </Component>
+            <Component Id="cmp93BF8C538A6DD6C305F1653FA928DC30" Directory="dir379D2DF70EC1F98D8A730658C24E6FD5" Guid="{0A6B283C-547D-486F-A8E4-C58628EFA31A}">
+                <File Id="fil410E66D681B6D7C677FE038E251CD31C" KeyPath="yes" Source="$(var.SourceItemsDir)\A01Wix.CreateDB\Wix_02Schema.sql" />
+            </Component>
+            <Component Id="cmpABC63F966EE747F6DEE322C8515664FE" Directory="dirC7E52614D608115B91EB5FF4E3D1430C" Guid="{22BB1332-4F3E-4C88-948A-ACBD80180ADE}">
+                <File Id="filFED9E20033FFA273611F595850CD20EF" KeyPath="yes" Source="$(var.SourceItemsDir)\A02Wix.Audit.DB\A02Wix.Audit.DB.ssmssqlproj" />
+            </Component>
+            <Component Id="cmp387AFABC55F9C946CDE9EAD779C1B651" Directory="dirC7E52614D608115B91EB5FF4E3D1430C" Guid="{464F4839-6699-484C-8E2D-C60837D497D3}">
+                <File Id="fil74FBAF293D78B0CD37524DF8260F234B" KeyPath="yes" Source="$(var.SourceItemsDir)\A02Wix.Audit.DB\Wix_01Audit_Schema.sql" />
+            </Component>
+            <Component Id="cmp1EEB06A2DEBA575D2928C39B0A0D62B0" Directory="dirC7E52614D608115B91EB5FF4E3D1430C" Guid="{E36037BB-CDD5-4596-A4E1-8B47F49E535F}">
+                <File Id="fil5375637E77690E6811C8A42FBAC0FFA3" KeyPath="yes" Source="$(var.SourceItemsDir)\A02Wix.Audit.DB\Wix_02Audit_Table.SQL" />
+            </Component>
+            <Component Id="cmpD45184ABB9B8DB2965CD6DE224005266" Directory="dir6F79B62F08E8DE557847A987BE4D10F3" Guid="{DF1F31E9-B0CD-430C-98B4-4D01909FE0F1}">
+                <File Id="fil8E3E3339E30D91E6D4F7E9B01542FF6A" KeyPath="yes" Source="$(var.SourceItemsDir)\B01Wix.Data\B01Wix.Data.ssmssqlproj" />
+            </Component>
+            <Component Id="cmp0DF7A247FF3BEB470146F8243F6EBC65" Directory="dir04608787A3D2A784C9754B906E5DFA82" Guid="{F4E8CAD2-6C6A-4401-BEAD-EDE53CD20F78}">
+                <File Id="fil9CE815F1A23F4321A960CF8240944122" KeyPath="yes" Source="$(var.SourceItemsDir)\C01Wix.Security\C01Wix.Security.ssmssqlproj" />
+            </Component>
+            <Component Id="cmp09D1F233790E8C769CED1C5B50BF9222" Directory="dir04608787A3D2A784C9754B906E5DFA82" Guid="{81BB0FDC-1103-470D-A55F-DD6FCF0F3046}">
+                <File Id="fil88A13E11A275F537FDCDD939D4C621AC" KeyPath="yes" Source="$(var.SourceItemsDir)\C01Wix.Security\Wix_01Core_Login.sql" />
+            </Component>
+            <Component Id="cmp28BA547989C1F4C6B2F037E918D38606" Directory="dir04608787A3D2A784C9754B906E5DFA82" Guid="{F9E9CD16-1758-44C8-BEB3-BFDB78502104}">
+                <File Id="filF603ADEEFB984B675A9EF2D7A51DB0F8" KeyPath="yes" Source="$(var.SourceItemsDir)\C01Wix.Security\Wix_02Core_User.sql" />
+            </Component>
+            <Component Id="cmp29EA0B48D0FAC40FEB5E690669B861BB" Directory="dir04608787A3D2A784C9754B906E5DFA82" Guid="{25816DE3-A22D-421B-92EF-9F2907735100}">
+                <File Id="fil3A70C4216792C1581B83C51B08708AC3" KeyPath="yes" Source="$(var.SourceItemsDir)\C01Wix.Security\Wix_03Core_Rol.sql" />
+            </Component>
+            <Component Id="cmpAB4E42E75827B8D334ECFD84AA9DBC97" Directory="dir04608787A3D2A784C9754B906E5DFA82" Guid="{1AB87E58-F4E6-4602-A049-250333E47EF6}">
+                <File Id="fil63EBBD59B1A8BF7D14CC52E8C67DE621" KeyPath="yes" Source="$(var.SourceItemsDir)\C01Wix.Security\Wix_04Core_Grant.sql" />
+            </Component>
+            <Component Id="cmpA05AAF4209A8C2C7AF100230C99AA298" Directory="dir04608787A3D2A784C9754B906E5DFA82" Guid="{9BDB0CA6-12AD-4D81-9679-92C193592FAC}">
+                <File Id="fil68B919B67D72AF2AC38FDC46DF0174A4" KeyPath="yes" Source="$(var.SourceItemsDir)\C01Wix.Security\Wix_05Core_Proxy.sql" />
+            </Component>
+            <Component Id="cmpF26138B60E9FF7420C539C0BA2695072" Directory="dirDA948D130C60C9BC35536293F2A721C2" Guid="{2D70F937-B3C9-40E1-A25F-118EC6401C48}">
+                <File Id="fil80182F3AAC55F04FAC84C04C7E01C075" KeyPath="yes" Source="$(var.SourceItemsDir)\D01Wix.SQLAgent\D01Wix.SQLAgent.ssmssqlproj" />
+            </Component>
+            <Component Id="cmpB2D822FA4F14E8983424E9D97A591D42" Directory="dirDA948D130C60C9BC35536293F2A721C2" Guid="{A012C11D-94C9-4AD6-B01C-E11F25C4C821}">
+                <File Id="fil0B2405DC4B127930DE609039A272E598" KeyPath="yes" Source="$(var.SourceItemsDir)\D01Wix.SQLAgent\Wix_01Mail.sql" />
+            </Component>
+            <Component Id="cmp7992E21B5A01426F6D3DFBBAE8604CAE" Directory="dirDA948D130C60C9BC35536293F2A721C2" Guid="{C1D0E295-2F96-44F7-B624-E4B4A8486CBB}">
+                <File Id="fil33F6CE2D5D13B6E8880A1E72FA4E7102" KeyPath="yes" Source="$(var.SourceItemsDir)\D01Wix.SQLAgent\Wix_02Operator.sql" />
+            </Component>
+            <Component Id="cmp4C17AB139735B8563232CDA70C27697B" Directory="dirDA948D130C60C9BC35536293F2A721C2" Guid="{4426CDED-C13A-4A30-84BC-532E3EAE7FE8}">
+                <File Id="fil748DB1CB4EDD2D45F58F7BB0B1E9AE03" KeyPath="yes" Source="$(var.SourceItemsDir)\D01Wix.SQLAgent\Wix_03Job1.sql" />
+            </Component>
+        </ComponentGroup>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir0FBB71CB30AF14E02B0FA86A988202CA">
+            <Directory Id="dir04608787A3D2A784C9754B906E5DFA82" Name="C01Wix.Security" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir0FBB71CB30AF14E02B0FA86A988202CA">
+            <Directory Id="dir379D2DF70EC1F98D8A730658C24E6FD5" Name="A01Wix.CreateDB" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir0FBB71CB30AF14E02B0FA86A988202CA">
+            <Directory Id="dir6F79B62F08E8DE557847A987BE4D10F3" Name="B01Wix.Data" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir0FBB71CB30AF14E02B0FA86A988202CA">
+            <Directory Id="dirC7E52614D608115B91EB5FF4E3D1430C" Name="A02Wix.Audit.DB" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dir0FBB71CB30AF14E02B0FA86A988202CA">
+            <Directory Id="dirDA948D130C60C9BC35536293F2A721C2" Name="D01Wix.SQLAgent" />
+        </DirectoryRef>
+    </Fragment>
+</Wix>

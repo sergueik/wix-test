@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+/* ==========================================================================
+Proyecto: Instalador
+Empresa: 
+Creado por: Hugo Gonzalez Olaya
+Fecha creacion: 2012-01-31
+Fecha Actualizacion: 2012-01-31
+Descripcion: Elementos comunes de la interfaz de usuario (Version modificada del dialogo original Wix) 
+========================================================================== */
+/* ==========================================================================
+Historial de versiones (Actualizado: 2012-01-31)
+1.0.0	Creado por: Hugo Gonzalez Olaya
+========================================================================== */
+
+/* ==========================================================================
+Links: 
+Fuentes: http://wix.cvs.sourceforge.net/viewvc/wix/wix/src/ext/UIExtension/wixlib/
+========================================================================== */
+-->
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <!--<Binary Id="WixUI_Ico_Completi" SourceFile="!(wix.WixUICompletiIco=$(var.CompletiIco))" />
+    <Binary Id="WixUI_Ico_Cust" SourceFile="!(wix.WixUICustIco=$(var.CustIco))" />
+    <Binary Id="WixUI_Ico_Inst" SourceFile="!(wix.WixUIInstIco=$(var.InstIco))" />
+    <Binary Id="WixUI_Ico_Remov" SourceFile="!(wix.WixUIRemovIco=$(var.RemovIco))" />
+    <Binary Id="WixUI_Ico_Repair" SourceFile="!(wix.WixUIRepairIco=$(var.RepairIco))" />-->
+
+      <UI Id="WixUI2_Common">
+        <UIRef Id="WixUI_Common" />
+        <UIRef Id="WixUI_ErrorProgressText" />
+       </UI>
+  </Fragment>
+</Wix>

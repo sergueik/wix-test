@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+/* ==========================================================================
+Proyecto: Instalador
+Empresa: 
+Creado por: Hugo Gonzalez Olaya
+Fecha creacion: 2012-01-31
+Fecha Actualizacion: 2012-01-31
+Descripcion: Componentes a ser instalados
+========================================================================== */
+/* ==========================================================================
+Historial de versiones (Actualizado: 2012-01-31)
+1.0.0	Creado por: Hugo Gonzalez Olaya
+========================================================================== */
+
+/* ==========================================================================
+Links:
+  Crear archivo de componentes: http://wix.tramontana.co.hu/tutorial/com-expression-syntax-miscellanea/components-of-a-different-color
+  Crear directorio sin instalar archivos: http://wix.tramontana.co.hu/tutorial/com-expression-syntax-miscellanea/creating-directories
+========================================================================== */
+-->
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?include $(var.ProjectDir)\Includes\Variables.wxi ?>
+
+  <Fragment Id="ComponentesFragment">
+    <!--Directory tree-->
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="$(var.PlatformProgramFilesFolder)">
+        <Directory Id="INSTALLLOCATION" Name="$(var.ProgramFileFolderName)" >
+          <Directory Id="D_Wix.DBScript" Name="Wix.DBScript">
+            <Directory Id="D_A01Wix.CreateDB" Name="A01Wix.CreateDB" />
+            <Directory Id="D_A02Wix.Audit.DB" Name="A02Wix.Audit.DB" />
+            <Directory Id="D_B01Wix.Data" Name="B01Wix.Data" />
+            <Directory Id="D_C01Wix.Security" Name="C01Wix.Security" />
+            <Directory Id="D_D01Wix.SQLAgent" Name="D01Wix.SQLAgent" />
+          </Directory>
+        </Directory>
+      </Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="D_AppShortcut" Name="$(var.ProgramFileFolderName)" />
+      </Directory>
+    </Directory>
+
+    <!--ShortCuts-->
+    <DirectoryRef Id="D_AppShortcut">
+      <Component Id="CMP_Shortcut" Guid="{51A15AE9-2304-4408-AFF8-E4005099D1E0}">
+        <Shortcut Id="SC_ReadmeTXT" Name="!(loc.Readme)" Description="!(loc.Readme) $(var.ProductName)"
+                  Target="[INSTALLLOCATION]Readme.txt"
+                  Icon="Icon_Application"/>
+        <Shortcut Id="SC_Uninstall" Name="!(loc.UninstallName)" Description="!(loc.UninstallName)"
+                  Target="[System64Folder]msiexec.exe"
+                  Arguments="/x [ProductCode]" />
+        <RemoveFolder Id="RemoveAppShortcut" On="uninstall" />
+        <RegistryValue Root="HKCU"
+                       Key="SOFTWARE\[Manufacturer]\[ProductName]"
+                       Name="installed"
+                       Type="integer"
+                       Value="1"
+                       KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+      <Component Id="CMP_ReadmeTXT" Directory="INSTALLLOCATION" Guid="{D7C02418-130F-4179-85D6-78539CB2528D}">
+        <File Id="F_ReadmeTXT" KeyPath="yes" Source="$(var.ProjectDir)\Resources\Readme.txt" />
+      </Component>
+
+      <Component Id="CMP_Registry_INSTALLLOCATION" Directory="D_Wix.DBScript" Guid="{E6C57EF8-8AB5-4D42-9F2F-E33726852909}">
+        <RegistryValue Id="RV_InstallLocation" 
+                       KeyPath="yes" 
+                       Action="write" 
+                       Root="HKLM" 
+                       Key="SOFTWARE\[Manufacturer]\[ProductName]" 
+                       Name="INSTALLLOCATION" 
+                       Value="[INSTALLLOCATION]" 
+                       Type="string" />
+      </Component>
+
+      <Component Id="CMP_Registry_DATABASE" Directory="D_Wix.DBScript" Guid="F402654A-AAAF-48ab-9C07-F7FEF09CAEFB">
+        <RegistryKey Id="RK_DATABASE" Root="HKLM" Key="SOFTWARE\[Manufacturer]\[ProductName]" Action="createAndRemoveOnUninstall">
+          <RegistryValue Id="RV_DATABASE_SERVERNAME" 
+                         Name="DATABASE_SERVERNAME" 
+                         Value="[DATABASE_SERVERNAME]" 
+                         Type="string" />
+
+          <RegistryValue Id="RV_DATABASE_NAME"
+                         Name="DATABASE_NAME"
+                         Value="[DATABASE_NAME]"
+                         Type="string" />
+
+          <RegistryValue Id="RV_DATABASE_USERNAME"
+                         Name="DATABASE_USERNAME"
+                         Value="[DATABASE_USERNAME]"
+                         Type="string" />
+
+			    <RegistryValue Id="RV_DATABASE_AUTHENTICATEDATABASE"
+						       Name="DATABASE_AUTHENTICATEDATABASE"
+						       Value="[DATABASE_AUTHENTICATEDATABASE]"
+						       Type="string" />
+          
+			    <RegistryValue Id="RV_DATABASE_EXECUTESCRIPTS"
+						       Name="DATABASE_EXECUTESCRIPTS"
+						       Value="[DATABASE_EXECUTESCRIPTS]"
+						       Type="string" />
+          
+          <RegistryValue Id="RV_DATABASE_MAILPROFILENAME"
+						       Name="DATABASE_MAILPROFILENAME"
+						       Value="[DATABASE_MAILPROFILENAME]"
+						       Type="string" />
+
+          <RegistryValue Id="RV_DATABASE_MAILBOX"
+						       Name="DATABASE_MAILBOX"
+						       Value="[DATABASE_MAILBOX]"
+						       Type="string" />
+
+          <RegistryValue Id="RV_DATABASE_MAILIP"
+						       Name="DATABASE_MAILIP"
+						       Value="[DATABASE_MAILIP]"
+						       Type="string" />
+
+          <RegistryValue Id="RV_DATABASE_OPERATORMAILBOX"
+						       Name="DATABASE_OPERATORMAILBOX"
+						       Value="[DATABASE_OPERATORMAILBOX]"
+						       Type="string" />
+
+          <RegistryValue Id="RV_DATABASE_PROXYWINDOWSUSER"
+						       Name="DATABASE_PROXYWINDOWSUSER"
+						       Value="[DATABASE_PROXYWINDOWSUSER]"
+						       Type="string" />
+        </RegistryKey>
+      </Component>
+
+    <ComponentGroup Id="CG_A01Wix.CreateDB">
+      <Component Id="cmp8ED399792B183E6A39CDE32ED8BC95F9" Directory="D_A01Wix.CreateDB" Guid="{835F8A93-8280-4A88-B34C-DE731D1D6F44}">
+        <File Id="fil25044444B3C75610A43228F06F2B92B5" KeyPath="yes" Source="$(var.SourceItemsDir)\A01Wix.CreateDB\A01Wix.CreateDB.ssmssqlproj" />
+      </Component>
+      <Component Id="cmpC71BE0DCE33A3995A07ED8CDFB9A4F81" Directory="D_A01Wix.CreateDB" Guid="{BB80C594-9F48-4C99-A936-31A704C1F2A8}">
+        <File Id="filCA369E782AB7B12498A20FC9C89FB7B4" KeyPath="yes" Source="$(var.SourceItemsDir)\A01Wix.CreateDB\Wix_01CreateDB.sql" />
+      </Component>
+      <Component Id="cmp93BF8C538A6DD6C305F1653FA928DC30" Directory="D_A01Wix.CreateDB" Guid="{0A6B283C-547D-486F-A8E4-C58628EFA31A}">
+        <File Id="fil410E66D681B6D7C677FE038E251CD31C" KeyPath="yes" Source="$(var.SourceItemsDir)\A01Wix.CreateDB\Wix_02Schema.sql" />
+      </Component>
+    </ComponentGroup>
+
+    <ComponentGroup Id="CG_A02Wix.Audit.DB">
+      <Component Id="cmpABC63F966EE747F6DEE322C8515664FE" Directory="D_A02Wix.Audit.DB" Guid="{22BB1332-4F3E-4C88-948A-ACBD80180ADE}">
+        <File Id="filFED9E20033FFA273611F595850CD20EF" KeyPath="yes" Source="$(var.SourceItemsDir)\A02Wix.Audit.DB\A02Wix.Audit.DB.ssmssqlproj" />
+      </Component>
+      <Component Id="cmp387AFABC55F9C946CDE9EAD779C1B651" Directory="D_A02Wix.Audit.DB" Guid="{464F4839-6699-484C-8E2D-C60837D497D3}">
+        <File Id="fil74FBAF293D78B0CD37524DF8260F234B" KeyPath="yes" Source="$(var.SourceItemsDir)\A02Wix.Audit.DB\Wix_01Audit_Schema.sql" />
+      </Component>
+      <Component Id="cmp1EEB06A2DEBA575D2928C39B0A0D62B0" Directory="D_A02Wix.Audit.DB" Guid="{E36037BB-CDD5-4596-A4E1-8B47F49E535F}">
+        <File Id="fil5375637E77690E6811C8A42FBAC0FFA3" KeyPath="yes" Source="$(var.SourceItemsDir)\A02Wix.Audit.DB\Wix_02Audit_Table.SQL" />
+      </Component>
+    </ComponentGroup>
+
+    <ComponentGroup Id="CG_B01Wix.Data">
+      <Component Id="cmpD45184ABB9B8DB2965CD6DE224005266" Directory="D_B01Wix.Data" Guid="{DF1F31E9-B0CD-430C-98B4-4D01909FE0F1}">
+        <File Id="fil8E3E3339E30D91E6D4F7E9B01542FF6A" KeyPath="yes" Source="$(var.SourceItemsDir)\B01Wix.Data\B01Wix.Data.ssmssqlproj" />
+      </Component>
+    </ComponentGroup>
+
+    <ComponentGroup Id="CG_C01Wix.Security">
+      <Component Id="cmp0DF7A247FF3BEB470146F8243F6EBC65" Directory="D_C01Wix.Security" Guid="{F4E8CAD2-6C6A-4401-BEAD-EDE53CD20F78}">
+        <File Id="fil9CE815F1A23F4321A960CF8240944122" KeyPath="yes" Source="$(var.SourceItemsDir)\C01Wix.Security\C01Wix.Security.ssmssqlproj" />
+      </Component>
+      <Component Id="cmp09D1F233790E8C769CED1C5B50BF9222" Directory="D_C01Wix.Security" Guid="{81BB0FDC-1103-470D-A55F-DD6FCF0F3046}">
+        <File Id="fil88A13E11A275F537FDCDD939D4C621AC" KeyPath="yes" Source="$(var.SourceItemsDir)\C01Wix.Security\Wix_01Core_Login.sql" />
+      </Component>
+      <Component Id="cmp28BA547989C1F4C6B2F037E918D38606" Directory="D_C01Wix.Security" Guid="{F9E9CD16-1758-44C8-BEB3-BFDB78502104}">
+        <File Id="filF603ADEEFB984B675A9EF2D7A51DB0F8" KeyPath="yes" Source="$(var.SourceItemsDir)\C01Wix.Security\Wix_02Core_User.sql" />
+      </Component>
+      <Component Id="cmp29EA0B48D0FAC40FEB5E690669B861BB" Directory="D_C01Wix.Security" Guid="{25816DE3-A22D-421B-92EF-9F2907735100}">
+        <File Id="fil3A70C4216792C1581B83C51B08708AC3" KeyPath="yes" Source="$(var.SourceItemsDir)\C01Wix.Security\Wix_03Core_Rol.sql" />
+      </Component>
+      <Component Id="cmpAB4E42E75827B8D334ECFD84AA9DBC97" Directory="D_C01Wix.Security" Guid="{1AB87E58-F4E6-4602-A049-250333E47EF6}">
+        <File Id="fil63EBBD59B1A8BF7D14CC52E8C67DE621" KeyPath="yes" Source="$(var.SourceItemsDir)\C01Wix.Security\Wix_04Core_Grant.sql" />
+      </Component>
+      <Component Id="cmpA05AAF4209A8C2C7AF100230C99AA298" Directory="D_C01Wix.Security" Guid="{9BDB0CA6-12AD-4D81-9679-92C193592FAC}">
+        <File Id="fil68B919B67D72AF2AC38FDC46DF0174A4" KeyPath="yes" Source="$(var.SourceItemsDir)\C01Wix.Security\Wix_05Core_Proxy.sql" />
+      </Component>
+    </ComponentGroup>
+
+    <ComponentGroup Id="CG_D01Wix.SQLAgent">
+      <Component Id="cmpF26138B60E9FF7420C539C0BA2695072" Directory="D_D01Wix.SQLAgent" Guid="{2D70F937-B3C9-40E1-A25F-118EC6401C48}">
+        <File Id="fil80182F3AAC55F04FAC84C04C7E01C075" KeyPath="yes" Source="$(var.SourceItemsDir)\D01Wix.SQLAgent\D01Wix.SQLAgent.ssmssqlproj" />
+      </Component>
+      <Component Id="cmpB2D822FA4F14E8983424E9D97A591D42" Directory="D_D01Wix.SQLAgent" Guid="{A012C11D-94C9-4AD6-B01C-E11F25C4C821}">
+        <File Id="fil0B2405DC4B127930DE609039A272E598" KeyPath="yes" Source="$(var.SourceItemsDir)\D01Wix.SQLAgent\Wix_01Mail.sql" />
+      </Component>
+      <Component Id="cmp7992E21B5A01426F6D3DFBBAE8604CAE" Directory="D_D01Wix.SQLAgent" Guid="{C1D0E295-2F96-44F7-B624-E4B4A8486CBB}">
+        <File Id="fil33F6CE2D5D13B6E8880A1E72FA4E7102" KeyPath="yes" Source="$(var.SourceItemsDir)\D01Wix.SQLAgent\Wix_02Operator.sql" />
+      </Component>
+      <Component Id="cmp4C17AB139735B8563232CDA70C27697B" Directory="D_D01Wix.SQLAgent" Guid="{4426CDED-C13A-4A30-84BC-532E3EAE7FE8}">
+        <File Id="fil748DB1CB4EDD2D45F58F7BB0B1E9AE03" KeyPath="yes" Source="$(var.SourceItemsDir)\D01Wix.SQLAgent\Wix_03Job1.sql" />
+      </Component>
+    </ComponentGroup>
+
+    <!-- Features -->
+   </Fragment>
+</Wix>

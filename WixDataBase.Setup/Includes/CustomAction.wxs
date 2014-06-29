@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+/* ==========================================================================
+Proyecto: Instalador
+Empresa: 
+Creado por: Hugo Gonzalez Olaya
+Fecha creacion: 2012-01-31
+Fecha Actualizacion: 2012-01-31
+Descripcion: Custom acttions
+========================================================================== */
+/* ==========================================================================
+Historial de versiones (Actualizado: 2012-01-31)
+1.0.0	Creado por: Hugo Gonzalez Olaya
+========================================================================== */
+
+/* ==========================================================================
+Links:
+  Acciones estandar: http://msdn.microsoft.com/en-us/library/Aa372023
+  Orden de eventos: http://wix.tramontana.co.hu/tutorial/events-and-actions/queueing-up
+========================================================================== */
+-->
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<!--Bases de datos-->
+	<Fragment>
+    <CustomAction Id="CA_SetDefaultIPAdress" BinaryKey="BIN_CustomAction" DllEntry="SetDefaultIPAdress" Execute="immediate" Impersonate="yes" Return="ignore" />
+    <CustomAction Id="CA_DataBaseTestConnection" BinaryKey="BIN_CustomAction" DllEntry="TestSqlConnection" Execute="immediate" Impersonate="yes" Return="ignore" />
+    <CustomAction Id="CA_DataBaseSwhowPathInstall" BinaryKey="BIN_CustomAction" DllEntry="SwhowPathInstall" Execute="immediate" Impersonate="yes" Return="check" />
+    <CustomAction Id="CA_DataBaseExecuteScripts" BinaryKey="BIN_CustomAction" DllEntry="ExecuteSQLScripts" Execute="deferred" Impersonate="yes" Return="check" />
+
+    <CustomAction Id="CA_SetProperty_DATABASE_SERVERNAME" Property="DATABASE_SERVERNAME" Value="[ComputerName]"/>
+    <CustomAction Id="CA_SetProperty_DATABASE_NAME" Property="DATABASE_NAME" Value="WixDataBase"/>
+    <UI>
+      <!--Presenta texto de progreso con el nombre de la tarea que está siendo ejecutada-->
+      <ProgressText Action="CA_DataBaseExecuteScripts" Template="!(loc.UIProgressDlg_ExecutingTask)" />
+    </UI>
+  </Fragment>
+
+	<!--Acciones actualización-->
+  <Fragment>
+    <!--Al establecer esta propiedada, el valor es almacenado en el registro del sistema y utilizado al reparar o desinstalar-->
+    <CustomAction Id="CA_RememberInstallDir" Property="ARPINSTALLLOCATION" Value="[INSTALLLOCATION]" />
+
+    <!--Guarda propiedades si son establecidas desde linea de comandos-->
+    <CustomAction Id='CA_SaveCmdLineValue' Property='CMDLINE_INSTALLLOCATION' Value='[INSTALLLOCATION]' Execute='firstSequence' />
+    <CustomAction Id='CA_SetFromCmdLineValue' Property='INSTALLLOCATION' Value='[CMDLINE_INSTALLLOCATION]' Execute='firstSequence' />
+
+    <!-- Previene downgrading -->
+    <CustomAction Id="CA_NoDowngrade" Error="!(loc.ValidationVersionNew)" />
+    <CustomAction Id='CA_AlreadyUpdated' Error='!(loc.ValidationVersionAlreadyUpdated)' />
+  </Fragment>
+
+  <!--Acciones serial de instalación-->
+  <Fragment>
+    <!--Accion verificar clave de usuario realizado por una DLL-->
+    <CustomAction Id="CA_CheckingPID" BinaryKey="BIN_CustomAction" DllEntry="CheckPID" HideTarget="yes" />
+  </Fragment>
+
+  <!--Acciones lanzar programa-->
+  <Fragment>
+    <!-- Lanza help file -->
+    <!--<CustomAction Id         ="CA_LaunchHelp"
+                Directory  ="INSTALLLOCATION"
+                ExeCommand ='[WindowsFolder]hh.exe [INSTALLLOCATION]$(var.HelpFileName)'
+                Execute    ="immediate"
+                Return     ="asyncNoWait" />-->
+
+    <!-- Lanza ejecutable EXE despues de instalar -->
+    <!--<CustomAction Id        ="CA_LaunchAppOnExit"
+                  FileKey     ="Fi_NotepadEXE"
+                  ExeCommand  =""
+                  Execute     ="immediate"
+                  Impersonate ="yes"
+                  Return      ="asyncNoWait" />-->
+    <!--<Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="!(loc.ExecuteAppToExit)" />-->
+    <!--
+      <UI>
+      <Publish Dialog="UI2ExitDlg" Control="Finish" Order="1" Event="DoAction"
+               Value="CA_LaunchAppOnExit">WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT</Publish>
+    </UI>-->
+  </Fragment>
+</Wix>

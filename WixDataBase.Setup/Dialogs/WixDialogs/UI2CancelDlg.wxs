@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+/* ==========================================================================
+Proyecto: Instalador
+Empresa: 
+Creado por: Hugo Gonzalez Olaya
+Fecha creacion: 2012-01-31
+Fecha Actualizacion: 2012-01-31
+Descripcion: Dialogo cancelar (Version modificada del dialogo original Wix) 
+========================================================================== */
+/* ==========================================================================
+Historial de versiones (Actualizado: 2012-01-31)
+1.0.0	Creado por: Hugo Gonzalez Olaya
+========================================================================== */
+
+/* ==========================================================================
+Links: 
+Fuentes: http://wix.cvs.sourceforge.net/viewvc/wix/wix/src/ext/UIExtension/wixlib/
+========================================================================== */
+-->
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <UI>
+            <Dialog Id="UI2CancelDlg" Width="260" Height="85" Title="!(loc.CancelDlg_Title)">
+                <Control Id="No" Type="PushButton" X="132" Y="57" Width="56" Height="17" Default="yes" Cancel="yes" Text="!(loc.WixUINo)">
+                    <Publish Event="EndDialog" Value="Return">1</Publish>
+                </Control>
+                <Control Id="Yes" Type="PushButton" X="72" Y="57" Width="56" Height="17" Text="!(loc.WixUIYes)">
+                    <Publish Event="EndDialog" Value="Exit">1</Publish>
+                </Control>
+                <Control Id="Text" Type="Text" X="48" Y="15" Width="194" Height="30" NoPrefix="yes" Text="!(loc.CancelDlgText)" />
+                <Control Id="Icon" Type="Icon" X="15" Y="15" Width="24" Height="24" ToolTip="!(loc.CancelDlgIconTooltip)" FixedSize="yes" IconSize="32" Text="!(loc.CancelDlgIcon)" />
+            </Dialog>
+        </UI>
+    </Fragment>
+</Wix>
