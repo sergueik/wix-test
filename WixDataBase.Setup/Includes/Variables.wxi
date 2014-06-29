@@ -35,7 +35,7 @@ Links:
   <?define HelpFileName = "WixDataBase.Setup.chm" ?>
 
   <!--Library-->
-  <?define SourceCustomAction = "C:\developer\sergueik\csharp\WixTutor\Fuente\WixDataBase.Setup\WixDataBase.CustomAction\bin\Debug\WixDataBase.CustomAction.CA.dll" ?>
+  <?define SourceCustomAction = "..\WixDataBase.CustomAction\bin\Debug\WixDataBase.CustomAction.CA.dll" ?>
 
   <!-- Product name as you want it to appear in Add/Remove Programs-->
 	<?if $(var.Platform) = x64 ?>
